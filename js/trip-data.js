@@ -98,6 +98,10 @@ export async function updateGameScore(tripCode, gameId, playerId, score) {
   });
 }
 
+export async function updateGameName(tripCode, gameId, name) {
+  return updateDoc(doc(db, "trips", tripCode, "games", gameId), { name });
+}
+
 export async function deleteGame(tripCode, gameId) {
   return deleteDoc(doc(db, "trips", tripCode, "games", gameId));
 }
