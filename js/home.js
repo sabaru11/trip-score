@@ -62,6 +62,7 @@ if (!isConnected()) {
       return;
     }
     const latest = games[games.length - 1];
+    const gameNumber = games.length;
     const rows = players
       .map((p) => ({ name: p.name, score: latest.scores?.[p.id] || 0 }))
       .sort((a, b) => b.score - a.score);
@@ -69,7 +70,7 @@ if (!isConnected()) {
       ? latest.createdAt.toDate().toLocaleDateString("th-TH", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false })
       : "";
     latestGameEl.innerHTML = `
-      <div class="game-name">${escapeHtml(latest.name)} <span class="game-date">${date}</span></div>
+      <div class="game-name">เกม ${gameNumber}: ${escapeHtml(latest.name)} <span class="game-date">${date}</span></div>
       ${rows
         .map(
           (r) => `<div class="score-line"><span class="pname">${escapeHtml(r.name)}</span><span class="pscore">${r.score}</span></div>`
@@ -83,7 +84,8 @@ if (!isConnected()) {
       gameListEl.innerHTML = `<div class="empty-state">ยังไม่มีเกมที่บันทึกไว้</div>`;
       return;
     }
-    gameListEl.innerHTML = [...games]
+    gameListEl.innerHTML = games
+      .map((g, idx) => ({ ...g, gameNumber: idx + 1 }))
       .reverse()
       .map((g) => {
         const rows = players
@@ -95,7 +97,7 @@ if (!isConnected()) {
         return `
         <div class="game-item">
           <div class="game-item-header">
-            <span class="name">${escapeHtml(g.name)}</span>
+            <span class="name">เกม ${g.gameNumber}: ${escapeHtml(g.name)}</span>
             <span class="date">${date}</span>
           </div>
           ${rows
