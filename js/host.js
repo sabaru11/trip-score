@@ -101,10 +101,24 @@ if (!isConnected()) {
           (p) => `
       <div class="score-row">
         <span class="pname">${escapeHtml(p.name)}</span>
-        <input type="number" inputmode="numeric" data-player="${p.id}" value="${game.scores?.[p.id] ?? 0}">
+        <div class="score-stepper">
+          <button type="button" class="step-btn" data-step="-1" data-player="${p.id}" aria-label="ลดคะแนน">−</button>
+          <input type="number" inputmode="numeric" data-player="${p.id}" value="${game.scores?.[p.id] ?? 0}">
+          <button type="button" class="step-btn" data-step="1" data-player="${p.id}" aria-label="เพิ่มคะแนน">+</button>
+        </div>
       </div>`
         )
         .join("") + `<div class="save-status" id="saveStatus"></div>`;
+
+    scoreControlsEl.querySelectorAll(".step-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const playerId = btn.dataset.player;
+        const step = Number(btn.dataset.step);
+        const input = scoreControlsEl.querySelector(`input[data-player="${playerId}"]`);
+        input.value = (Number(input.value) || 0) + step;
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+      });
+    });
 
     scoreControlsEl.querySelectorAll("input[data-player]").forEach((input) => {
       input.addEventListener("input", () => {
@@ -159,7 +173,7 @@ if (!isConnected()) {
     });
     gameHistoryEl.querySelectorAll("[data-del]").forEach((btn) => {
       btn.addEventListener("click", async () => {
-        if (confirm("ลบเกมนี้ทั้งหมด? แก้ไขคืนไม่ได้")) {
+        if (confirm("ต้องการจะลบเกมนี้?")) {
           await deleteGame(tripCode, btn.dataset.del);
           if (currentGameId === btn.dataset.del) {
             currentGameId = null;
