@@ -5,7 +5,7 @@
 // 3) ไปที่ Project settings (รูปเฟือง) > General > Your apps > Web app (</>)
 //    ตั้งชื่อ แล้วคัดลอกค่า firebaseConfig มาแปะแทนค่าด้านล่างนี้
 // ============================================================
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyD1Oasi-OcmXCBZ9nF808DX0-HnZnfnZck",
   authDomain: "scoretrip-49432.firebaseapp.com",
   projectId: "scoretrip-49432",
