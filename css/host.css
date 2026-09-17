@@ -29,6 +29,10 @@
 .player-chip button:hover { color: var(--coral); background: rgba(255, 110, 90, 0.12); }
 
 /* ---------- editable game name ---------- */
+.game-number {
+  font-size: 13px;
+  color: var(--text-muted);
+}
 .game-name-input {
   background: transparent;
   border: none;
