@@ -28,6 +28,25 @@
 }
 .player-chip button:hover { color: var(--coral); background: rgba(255, 110, 90, 0.12); }
 
+/* ---------- editable game name ---------- */
+.game-name-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed var(--line);
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 13px;
+  padding: 3px 0;
+  width: 100%;
+  max-width: 240px;
+}
+.game-name-input:hover { border-color: var(--text-muted); }
+.game-name-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  color: var(--text);
+}
+
 /* ---------- current game score entry ---------- */
 .score-controls {
   display: flex;
