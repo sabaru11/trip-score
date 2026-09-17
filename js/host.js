@@ -132,7 +132,7 @@ if (!isConnected()) {
       .map((g) => {
         const total = Object.values(g.scores || {}).reduce((a, b) => a + b, 0);
         const date = g.createdAt?.toDate
-          ? g.createdAt.toDate().toLocaleDateString("th-TH", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })
+          ? g.createdAt.toDate().toLocaleDateString("th-TH", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false })
           : "";
         return `
         <div class="history-item" data-id="${g.id}">
