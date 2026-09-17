@@ -16,7 +16,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 import { firebaseConfig } from "./firebase-config.js";
 
-const isPlaceholderConfig = firebaseConfig.apiKey === "AIzaSyD1Oasi-OcmXCBZ9nF808DX0-HnZnfnZck";
+const isPlaceholderConfig = firebaseConfig.apiKey === "YOUR_API_KEY";
 
 let app = null;
 let db = null;
