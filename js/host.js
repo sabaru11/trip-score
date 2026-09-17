@@ -8,6 +8,7 @@ import {
   removePlayer,
   addGame,
   updateGameScore,
+  updateGameName,
   deleteGame,
 } from "./trip-data.js";
 
@@ -34,6 +35,7 @@ if (!isConnected()) {
   let games = [];
   let currentGameId = null;
   const saveTimers = {};
+  let nameSaveTimer = null;
 
   addPlayerBtn.addEventListener("click", async () => {
     const name = prompt("ชื่อผู้เล่น");
@@ -78,7 +80,16 @@ if (!isConnected()) {
       scoreControlsEl.innerHTML = `<div class="empty-state">กด "+ เพิ่มเกม" เพื่อเริ่มเกมแรก</div>`;
       return;
     }
-    currentGameNameEl.textContent = game.name;
+    currentGameNameEl.innerHTML = `<input type="text" id="gameNameInput" class="game-name-input" value="${escapeHtml(game.name)}" placeholder="ชื่อเกม">`;
+    const nameInput = document.getElementById("gameNameInput");
+    nameInput.addEventListener("input", () => {
+      clearTimeout(nameSaveTimer);
+      const gameIdAtEdit = currentGameId;
+      nameSaveTimer = setTimeout(async () => {
+        const value = nameInput.value.trim();
+        if (value) await updateGameName(tripCode, gameIdAtEdit, value);
+      }, 500);
+    });
     if (players.length === 0) {
       scoreControlsEl.innerHTML = `<div class="empty-state">เพิ่มผู้เล่นก่อนถึงจะใส่คะแนนได้</div>`;
       return;
