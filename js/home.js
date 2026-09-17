@@ -87,7 +87,7 @@ if (!isConnected()) {
           .map((p) => ({ name: p.name, score: g.scores?.[p.id] || 0 }))
           .sort((a, b) => b.score - a.score);
         const date = g.createdAt?.toDate
-          ? g.createdAt.toDate().toLocaleDateString("th-TH", { day: "numeric", month: "short" })
+          ? g.createdAt.toDate().toLocaleDateString("th-TH", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false })
           : "";
         return `
         <div class="game-item">
