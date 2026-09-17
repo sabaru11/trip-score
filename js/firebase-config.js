@@ -12,5 +12,4 @@ const firebaseConfig = {
   storageBucket: "scoretrip-49432.firebasestorage.app",
   messagingSenderId: "303445047962",
   appId: "1:303445047962:web:0a2e39eb3d332c1fc93d23",
-  measurementId: "G-EXZHS8TXX4"
 };
