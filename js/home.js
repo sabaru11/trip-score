@@ -65,8 +65,11 @@ if (!isConnected()) {
     const rows = players
       .map((p) => ({ name: p.name, score: latest.scores?.[p.id] || 0 }))
       .sort((a, b) => b.score - a.score);
+    const date = latest.createdAt?.toDate
+      ? latest.createdAt.toDate().toLocaleDateString("th-TH", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false })
+      : "";
     latestGameEl.innerHTML = `
-      <div class="game-name">${escapeHtml(latest.name)}</div>
+      <div class="game-name">${escapeHtml(latest.name)} <span class="game-date">${date}</span></div>
       ${rows
         .map(
           (r) => `<div class="score-line"><span class="pname">${escapeHtml(r.name)}</span><span class="pscore">${r.score}</span></div>`
