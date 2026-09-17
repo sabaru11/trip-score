@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Score</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">TRIP SCORE</p>
+        <h1>🎮 คะแนนทริป</h1>
+        <p class="subtitle">ดูคะแนนรวมและผลการแข่งขันแบบเรียลไทม์</p>
+      </div>
+      <div class="trip-code">TRIP <strong id="tripCode">DEMO01</strong></div>
+    </header>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>🏆 ตารางคะแนนรวม</h2>
+        <span id="playerCount">0 คน</span>
+      </div>
+      <div id="leaderboard" class="leaderboard"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>🎯 เกมล่าสุด</h2>
+        <span id="gameCount">0 เกม</span>
+      </div>
+      <div id="latestGame" class="game-summary"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>📋 เกมทั้งหมด</h2>
+      </div>
+      <div id="gameList" class="game-list"></div>
+    </section>
+
+    <footer>
+      <span id="connectionStatus">● Demo mode</span>
+    </footer>
+  </main>
+
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Score - Host</title>
+  <link rel="stylesheet" href="css/host.css">
+</head>
+<body>
+  <main class="host-container">
+    <header class="host-header">
+      <div>
+        <p class="eyebrow">TRIP SCORE / HOST</p>
+        <h1>🎮 Host Panel</h1>
+        <p class="subtitle">จัดการผู้เล่น เกม และคะแนน</p>
+      </div>
+      <div class="trip-code">TRIP <strong id="tripCode">DEMO01</strong></div>
+    </header>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>👥 ผู้เล่น</h2>
+        <button class="btn primary" id="addPlayerBtn">+ เพิ่มผู้เล่น</button>
+      </div>
+      <div id="players" class="players"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <div>
+          <h2>🎯 เกมปัจจุบัน</h2>
+          <p id="currentGameName" class="muted">ยังไม่มีเกม</p>
+        </div>
+        <button class="btn primary" id="addGameBtn">+ เพิ่มเกม</button>
+      </div>
+
+      <div id="scoreControls" class="score-controls">
+        <div class="empty-state">กด “+ เพิ่มเกม” เพื่อเริ่มเกมแรก</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>📋 เกมที่ผ่านมา</h2>
+      </div>
+      <div id="gameHistory" class="game-history"></div>
+    </section>
+
+    <footer>
+      <span>Host Demo Mode</span>
+    </footer>
+  </main>
+
+  <script type="module" src="js/host.js"></script>
+</body>
+</html>

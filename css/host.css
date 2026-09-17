@@ -1,0 +1,109 @@
+@import url('base.css');
+
+/* ---------- players ---------- */
+.players {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.player-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-raised);
+  border-radius: 999px;
+  padding: 7px 8px 7px 14px;
+  font-size: 13.5px;
+}
+
+.player-chip button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 999px;
+}
+.player-chip button:hover { color: var(--coral); background: rgba(255, 110, 90, 0.12); }
+
+/* ---------- current game score entry ---------- */
+.score-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr 96px;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface-raised);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+}
+
+.score-row .pname { font-size: 14px; }
+
+.score-row input[type="number"] {
+  width: 100%;
+  background: var(--ink);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+.score-row input[type="number"]:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.save-status {
+  font-size: 12px;
+  color: var(--teal);
+  text-align: right;
+  min-height: 16px;
+}
+
+/* ---------- game history ---------- */
+.game-history {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  background: var(--surface-raised);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.history-item .info { display: flex; flex-direction: column; gap: 2px; }
+.history-item .name { font-size: 14px; font-weight: 600; }
+.history-item .meta { font-size: 11.5px; color: var(--text-muted); }
+.history-item .actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+.banner {
+  background: rgba(244, 185, 66, 0.1);
+  border: 1px solid rgba(244, 185, 66, 0.35);
+  color: var(--gold);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.banner code {
+  background: rgba(0,0,0,0.25);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
