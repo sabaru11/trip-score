@@ -80,7 +80,8 @@ if (!isConnected()) {
       scoreControlsEl.innerHTML = `<div class="empty-state">กด "+ เพิ่มเกม" เพื่อเริ่มเกมแรก</div>`;
       return;
     }
-    currentGameNameEl.innerHTML = `<input type="text" id="gameNameInput" class="game-name-input" value="${escapeHtml(game.name)}" placeholder="ชื่อเกม">`;
+    const gameNumber = games.findIndex((g) => g.id === currentGameId) + 1;
+    currentGameNameEl.innerHTML = `<span class="game-number">เกม ${gameNumber}:</span> <input type="text" id="gameNameInput" class="game-name-input" value="${escapeHtml(game.name)}" placeholder="ชื่อเกม">`;
     const nameInput = document.getElementById("gameNameInput");
     nameInput.addEventListener("input", () => {
       clearTimeout(nameSaveTimer);
@@ -127,7 +128,8 @@ if (!isConnected()) {
       gameHistoryEl.innerHTML = `<div class="empty-state">ยังไม่มีเกมที่บันทึกไว้</div>`;
       return;
     }
-    gameHistoryEl.innerHTML = [...games]
+    gameHistoryEl.innerHTML = games
+      .map((g, idx) => ({ ...g, gameNumber: idx + 1 }))
       .reverse()
       .map((g) => {
         const total = Object.values(g.scores || {}).reduce((a, b) => a + b, 0);
@@ -137,7 +139,7 @@ if (!isConnected()) {
         return `
         <div class="history-item" data-id="${g.id}">
           <div class="info">
-            <span class="name">${escapeHtml(g.name)}</span>
+            <span class="name">เกม ${g.gameNumber}: ${escapeHtml(g.name)}</span>
             <span class="meta">${date} · รวม ${total} แต้ม</span>
           </div>
           <div class="actions">
