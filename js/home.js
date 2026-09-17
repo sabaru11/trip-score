@@ -25,7 +25,7 @@ if (!isConnected()) {
   statusEl.textContent = "● ยังไม่ได้เชื่อมฐานข้อมูล — ดู js/firebase-config.js";
   leaderboardEl.innerHTML = `<div class="empty-state">ใส่ค่า Firebase config ใน js/firebase-config.js ก่อน ถึงจะเห็นคะแนนจริง</div>`;
 } else {
-  statusEl.textContent = "● เชื่อมต่อแล้ว · เรียลไทม์";
+  statusEl.textContent = "เก็บคะแนนเกมระหว่างเที่ยวของเดอะแก๊งค์";
 
   let players = [];
   let games = [];
