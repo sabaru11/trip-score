@@ -33,7 +33,7 @@ export function getTripCode() {
     localStorage.setItem("tripScore.tripCode", fromUrl.toUpperCase());
     return fromUrl.toUpperCase();
   }
-  return localStorage.getItem("tripScore.tripCode") || "DEMO01";
+  return localStorage.getItem("tripScore.tripCode") || "KORAT";
 }
 
 /** เปลี่ยนรหัสทริป แล้วรีโหลดหน้า */
